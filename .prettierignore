@@ -1,0 +1,5 @@
+.babelrc
+node_modules
+coverage
+spec
+__mocks__

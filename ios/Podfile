@@ -1,0 +1,54 @@
+plugin 'cocoapods-fix-react-native'
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+inhibit_all_warnings!
+# use_frameworks!
+
+target 'lynx' do
+    inherit! :search_paths
+
+    # React Native requirements
+    pod 'React', :path => '../node_modules/react-native', :subspecs => [
+        'Core',
+        'CxxBridge',
+        'DevSupport',
+        'RCTText',
+        'RCTImage',
+        'RCTNetwork',
+        'RCTWebSocket',
+        'RCTAnimation',
+        'RCTVibration',
+        'RCTGeolocation',
+        'RCTPushNotification',
+        'RCTLinkingIOS'
+    ]
+
+    pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+    pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+    pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+    pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+
+  pod 'react-native-safari-view', :path => '../node_modules/react-native-safari-view'
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+end
+
+# post_install do |installer|
+#   installer.pods_project.targets.each do |target|
+#     if target.name == 'react-native-config'
+#       phase = target.project.new(Xcodeproj::Project::Object::PBXShellScriptBuildPhase)
+#       phase.shell_script = "cd ../../"\
+#                            " && RNC_ROOT=./node_modules/react-native-config/"\
+#                            " && export SYMROOT=$RNC_ROOT/ios/ReactNativeConfig"\
+#                            " && export BUILD_DIR=$RNC_ROOT/ios/ReactNativeConfig"\
+#                            " && ruby $RNC_ROOT/ios/ReactNativeConfig/BuildDotenvConfig.ruby"
+
+#       target.build_phases << phase
+#       target.build_phases.move(phase,0)
+#     end
+#     if target.name == "React"
+#       target.remove_from_project
+#     end
+#   end
+# end

@@ -1,0 +1,97 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "plugins": [
+    "react",
+    "react-native",
+    "jsx-a11y",
+    "import"
+  ],
+  "rules": {
+    "react/sort-comp": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "no-multi-spaces": 0,
+    "arrow-parens": "off",
+    "linebreak-style": "off",
+    "indent": "off",
+    "no-tabs": "off",
+    "class-methods-use-this": "off",
+    "no-underscore-dangle": [
+      0
+    ],
+    "consistent-return": 0,
+    "no-unused-expressions": [
+      2,
+      {
+        "allowShortCircuit": true
+      }
+    ],
+    "no-param-reassign": 0,
+    "func-names": 0,
+    "comma-dangle": [
+      2,
+      "never"
+    ],
+    "no-shadow": 0,
+    "guard-for-in": 0,
+    "no-restricted-syntax": [
+      2,
+      "WithStatement"
+    ],
+    "newline-per-chained-call": [
+      2,
+      {
+        "ignoreChainWithDepth": 5
+      }
+    ],
+    "space-in-parens": 0,
+    "import/prefer-default-export": "off",
+    "key-spacing": 0,
+    "no-unused-vars": [
+      2,
+      {
+        "vars": "all",
+        "args": "none"
+      }
+    ],
+    "max-len": [
+      1,
+      {
+        "code": 120,
+        "comments": 140
+      }
+    ],
+    "padded-blocks": 0,
+    "no-console": 0,
+    "no-continue": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/newline-after-import": 0,
+    "no-mixed-operators": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/prefer-stateless-function": "off",
+    "react/prop-types": "off",
+    "import/no-unresolved": "off",
+    "object-curly-newline": [
+      "error",
+      {
+        "multiline": true,
+        "consistent": true
+      }
+    ]
+  },
+  "globals": {
+    "it": false,
+    "expect": false,
+    "describe": false,
+    "navigator": false
+  }
+}
