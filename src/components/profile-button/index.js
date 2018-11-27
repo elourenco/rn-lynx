@@ -12,6 +12,6 @@ const styles = StyleSheet.create({
 
 export default ({ onPress }) => (
   <View style={styles.container}>
-    <Icon name="user-circle" color="#333333" size={28} />
+    <Icon name="user-circle" color="#333333" size={36} />
   </View>
 );

@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   subtitle: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: '100'
   }
 });
