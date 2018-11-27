@@ -14,7 +14,4 @@ const middlerwares = [
   crashReportMiddleware
 ];
 
-export default () => {
-  const store = createStore(reducers, applyMiddleware(...middlerwares));
-  return store;
-};
+export default () => (createStore(reducers, applyMiddleware(...middlerwares)));

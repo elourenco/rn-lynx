@@ -7,7 +7,7 @@ const stateAction = {
   stateConnectionChange: connectionInfo => ({ type: APP_CONNECTION_CHANGE, connectionInfo })
 };
 
-const applicationAction = {
+export default {
   appStateChange: status => dispatch => dispatch(stateAction.stateChange(status)),
   appStateConnectionChange: connectionInfo => dispatch => dispatch(stateAction.stateConnectionChange(connectionInfo)),
   appHandleOpenURL: ({ url }) => {
@@ -18,5 +18,3 @@ const applicationAction = {
     }
   }
 };
-
-export default applicationAction;

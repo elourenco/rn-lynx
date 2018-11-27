@@ -1,9 +1,8 @@
-import { createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
 import TasksContainer from '@features/tasks/TasksContainer';
 import MailsContainer from '@features/mails/MailsContainer';
 import SettingsContainer from '@features/settings/SettingsContainer';
 import NotesContainer from '@features/notes/NotesContainer';
-
 import AuthenticationContainer from '@features/authentication/AuthenticationContainer';
 import OnboardContainer from '@features/onboard/OnboardContainer';
 
@@ -26,7 +25,7 @@ const MainTabContainer = createBottomTabNavigator({
     }
   });
 
-export default createSwitchNavigator(
+const appSwitchNavigator = createSwitchNavigator(
   {
     OnboardContainer,
     MainTabContainer,
@@ -36,3 +35,5 @@ export default createSwitchNavigator(
     initialRouteName: 'AuthenticationContainer'
   }
 );
+
+export default createAppContainer(appSwitchNavigator);
