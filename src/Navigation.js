@@ -1,38 +1,35 @@
-import { createAppContainer, createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
-import TasksContainer from '@features/tasks/TasksContainer';
-import MailsContainer from '@features/mails/MailsContainer';
-import SettingsContainer from '@features/settings/SettingsContainer';
-import NotesContainer from '@features/notes/NotesContainer';
+import { createAppContainer, createSwitchNavigator, createStackNavigator } from 'react-navigation';
 import AuthenticationContainer from '@features/authentication/AuthenticationContainer';
 import OnboardContainer from '@features/onboard/OnboardContainer';
 
-const MainTabContainer = createBottomTabNavigator({
-  Mails: MailsContainer,
-  Tasks: TasksContainer,
-  Notes: NotesContainer,
-  Settings: SettingsContainer
+import ListTasksScreen from '@features/tasks/ListTasksScreen';
+import SettingsScreen from '@features/settings/SettingsScreen';
+import ListNotesScreen from '@features/notes/ListNotesScreen';
+import DashboardScreen from '@features/dashboard/DashboardScreen';
 
+const MainContainer = createStackNavigator({
+    Dashboard: { screen: DashboardScreen },
+    ListTasks: { screen: ListTasksScreen },
+    Settings: { screen: SettingsScreen },
+    Notes: { screen: ListNotesScreen }
 }, {
-    initialRouteName: 'Mails',
-    swipeEnabled: false,
-    lazy: true,
-    mode: 'card',
-    tabBarOptions: {
-      showIcon: true,
-      showLabel: true,
-      pressOpacity: 2,
-      animationEnabled: true
+    initialRouteName: 'Dashboard',
+    navigationOptions: {
+      headerStyle: {
+        elevation: 0,
+        borderBottomWidth: 0
+      }
     }
   });
 
 const appSwitchNavigator = createSwitchNavigator(
   {
+    MainContainer,
     OnboardContainer,
-    MainTabContainer,
     AuthenticationContainer
   },
   {
-    initialRouteName: 'AuthenticationContainer'
+    initialRouteName: 'MainContainer'
   }
 );
 
