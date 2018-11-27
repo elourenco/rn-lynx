@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import CustomHeaderTitle from '@components/custom-header-title';
-import ProfileHeaderRightButton from '@components/profile-button';
+import ProfileButton from '@components/profile-button';
 
 class DashboardScreen extends React.Component {
   static navigationOptions = {
     headerLeft: <CustomHeaderTitle title="Olá, Eduardo" subtitle="Terça-feira, 27 de Novembro de 2018" />,
-    headerRight: <ProfileHeaderRightButton />,
+    headerRight: <ProfileButton />,
     headerStyle: {
       elevation: 0,
       borderBottomWidth: 0
