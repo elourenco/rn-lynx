@@ -1,17 +1,32 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import Icon from '@src/Icons';
+import { connect } from 'react-redux';
+import { Image, StyleSheet, View } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     marginHorizontal: 16,
     justifyContent: 'center'
+  },
+  image: {
+    height: 36,
+    width: 36,
+    borderRadius: 18
   }
 });
 
-export default ({ onPress }) => (
-  <View style={styles.container}>
-    <Icon name="user-circle" color="#333333" size={36} />
-  </View>
-);
+class ProfileButton extends React.Component {
+  render() {
+    return this.props.avatar ? (
+      <View style={styles.container}>
+        <Image style={styles.image} resizeMode="contain" source={{ uri: this.props.avatar }} />
+      </View>
+    ) : null;
+  }
+}
+
+const mapStateToProps = state => ({
+  avatar: state.authentication.avatar
+});
+
+export default connect(mapStateToProps)(ProfileButton);
