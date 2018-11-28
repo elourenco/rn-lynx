@@ -8,10 +8,10 @@ import ListNotesScreen from '@features/notes/ListNotesScreen';
 import DashboardScreen from '@features/dashboard/DashboardScreen';
 
 const MainContainer = createStackNavigator({
-    Dashboard: { screen: DashboardScreen },
-    ListTasks: { screen: ListTasksScreen },
-    Settings: { screen: SettingsScreen },
-    Notes: { screen: ListNotesScreen }
+  Dashboard: { screen: DashboardScreen },
+  ListTasks: { screen: ListTasksScreen },
+  Settings: { screen: SettingsScreen },
+  Notes: { screen: ListNotesScreen }
 }, {
     initialRouteName: 'Dashboard',
     navigationOptions: {
@@ -22,15 +22,17 @@ const MainContainer = createStackNavigator({
     }
   });
 
-const appSwitchNavigator = createSwitchNavigator(
-  {
-    MainContainer,
-    OnboardContainer,
-    AuthenticationContainer
-  },
-  {
-    initialRouteName: 'MainContainer'
-  }
-);
+export default (authented) => {
+  const appSwitchNavigator = createSwitchNavigator(
+    {
+      MainContainer,
+      OnboardContainer,
+      AuthenticationContainer
+    },
+    {
+      initialRouteName: authented ? 'MainContainer' : 'AuthenticationContainer'
+    }
+  );
 
-export default createAppContainer(appSwitchNavigator);
+  return createAppContainer(appSwitchNavigator);
+};

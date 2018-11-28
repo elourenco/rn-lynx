@@ -10,11 +10,11 @@ const stateAction = {
 export default {
   appStateChange: status => dispatch => dispatch(stateAction.stateChange(status)),
   appStateConnectionChange: connectionInfo => dispatch => dispatch(stateAction.stateConnectionChange(connectionInfo)),
-  appHandleOpenURL: ({ url }) => {
+  appHandleOpenURL: ({ url }) => dispatch => {
     const [, userString] = url.match(/user=([^#]+)/);
     const user = JSON.parse(decodeURI(userString));
     if (user) {
-      authenticationAction.handleSignInOpenURL(user);
+      dispatch(authenticationAction.handleSignInOpenURL(user));
     }
   }
 };

@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { AppState, Linking, NetInfo } from 'react-native';
 import { connect } from 'react-redux';
 import applicationAction from '@features/application/ApplicationActions';
-import AppContainer from '@src/Navigation';
+import navigation from '@src/Navigation';
 
 class Application extends React.Component {
   componentDidMount() {
@@ -19,12 +19,17 @@ class Application extends React.Component {
   }
 
   render() {
+    const AppContainer = navigation(this.props.authented);
     return <AppContainer />;
   }
 }
+
+const mapStateToProps = state => ({
+  authented: state.authentication.accessToken !== null
+});
 
 const mapDispatchToProps = dispatch => ({
   application: bindActionCreators(applicationAction, dispatch)
 });
 
-export default connect(null, mapDispatchToProps)(Application);
+export default connect(mapStateToProps, mapDispatchToProps)(Application);

@@ -5,11 +5,7 @@ import SocialButton from '../../components/social-button';
 
 class AuthenticationScreen extends React.Component {
 
-  loginWithFacebook = () => Browser.show('https://localhost:3000/authentication/social/facebook');
-
   loginWithGoogle = () => Browser.show('https://localhost:3000/authentication/social/google');
-
-  loginWithOutlook = () => Browser.show('https://localhost:3000/authentication/social/outlook');
 
   render() {
     return (

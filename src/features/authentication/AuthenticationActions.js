@@ -5,7 +5,7 @@ const authenticationState = {
 };
 
 const authenticationAction = {
-  handleSignInOpenURL: (user) => dispatch => {
+  handleSignInOpenURL: user => dispatch => {
     dispatch(authenticationState.stateSignIn(user));
   }
 };
