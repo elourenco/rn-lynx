@@ -35,8 +35,10 @@ class CustomHeaderLeft extends React.Component {
   }
 }
 
+const titleFormat = (name) => (name && `Olá ${name.split(' ')[0]}`);
+
 const mapStateToProps = state => ({
-  title: state.authentication.name && state.authentication.name.split(' ')[0],
+  title: titleFormat(state.authentication.name),
   subtitle: moment().format('dddd, MMMM [de] DD [de] YYYY')
 });
 
