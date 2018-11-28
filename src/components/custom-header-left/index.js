@@ -1,5 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Text, View, StyleSheet } from 'react-native';
+import moment from 'moment';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,9 +19,25 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ({ title, subtitle }) => (
-  <View style={styles.container}>
-    <Text allowFontScaling={false} style={styles.title}>{title}</Text>
-    <Text allowFontScaling={false} style={styles.subtitle}>{subtitle}</Text>
-  </View>
-);
+class CustomHeaderLeft extends React.Component {
+  render() {
+    const { title, subtitle } = this.props;
+    return (
+      <View style={styles.container}>
+        <Text allowFontScaling={false} style={styles.title}>
+          {title}
+        </Text>
+        <Text allowFontScaling={false} style={styles.subtitle}>
+          {subtitle}
+        </Text>
+      </View>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  title: state.authentication.name && state.authentication.name.split(' ')[0],
+  subtitle: moment().format('dddd, MMMM [de] DD [de] YYYY')
+});
+
+export default connect(mapStateToProps)(CustomHeaderLeft);

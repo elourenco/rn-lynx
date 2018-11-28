@@ -1,17 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
 import CustomHeaderLeft from '@components/custom-header-left';
 import ProfileButton from '@components/profile-button';
 
 class DashboardScreen extends React.Component {
   static navigationOptions = {
-    headerLeft: <CustomHeaderLeft title="Olá, Eduardo" subtitle="Terça-feira, 27 de Novembro de 2018" />,
-    headerRight: <ProfileButton />,
-    headerStyle: {
-      elevation: 0,
-      borderBottomWidth: 0
+      headerLeft: <CustomHeaderLeft />,
+      headerRight: <ProfileButton />,
+      headerStyle: {
+        elevation: 0,
+        borderBottomWidth: 0
+      }
     }
-  }
 
   render() {
     return (
@@ -22,4 +23,4 @@ class DashboardScreen extends React.Component {
   }
 }
 
-export default DashboardScreen;
+export default connect(null)(DashboardScreen);
