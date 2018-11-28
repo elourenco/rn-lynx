@@ -10,7 +10,6 @@ const store = configureStore();
 
 moment.locale('pt-br');
 
-// https://github.com/facebook/react-native/issues/5267
 Platform.OS === 'android'
     && UIManager.setLayoutAnimationEnabledExperimental
     && UIManager.setLayoutAnimationEnabledExperimental(true);

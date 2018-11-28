@@ -1,7 +1,7 @@
 export const SIGIN_SUCCESS = 'SIGIN_SUCCESS';
 
 const authenticationState = {
-  stateSignIn: user => ({ type: SIGIN_SUCCESS, user })
+  stateSignIn: data => ({ type: SIGIN_SUCCESS, data })
 };
 
 const authenticationAction = {
