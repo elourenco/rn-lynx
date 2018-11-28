@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,11 +15,19 @@ const styles = StyleSheet.create({
   }
 });
 
+const ImageButton = ({ url, onPress }) => (
+  <TouchableOpacity onPress={onPress}>
+    <Image style={styles.image} resizeMode="contain" source={{ uri: url }} />
+  </TouchableOpacity>
+);
+
 class ProfileButton extends React.Component {
   render() {
+    const { openProfileOnPress, avatar } = this.props;
+
     return this.props.avatar ? (
       <View style={styles.container}>
-        <Image style={styles.image} resizeMode="contain" source={{ uri: this.props.avatar }} />
+        <ImageButton url={avatar} onPress={openProfileOnPress} />
       </View>
     ) : null;
   }

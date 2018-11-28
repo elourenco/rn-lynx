@@ -39,7 +39,7 @@ const titleFormat = (name) => (name && `Olá ${name.split(' ')[0]}`);
 
 const mapStateToProps = state => ({
   title: titleFormat(state.authentication.name),
-  subtitle: moment().format('dddd, MMMM [de] DD [de] YYYY')
+  subtitle: moment().format('dddd, DD [de] MMMM [de] YYYY')
 });
 
 export default connect(mapStateToProps)(CustomHeaderLeft);
