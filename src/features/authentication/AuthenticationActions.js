@@ -1,3 +1,5 @@
+import Authentication from '@database/models/Authentication';
+
 export const SIGIN_SUCCESS = 'SIGIN_SUCCESS';
 
 const authenticationState = {

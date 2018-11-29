@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import configureStore from '@src/Store';
 import moment from 'moment';
 import 'moment/locale/pt-br';
+
 import Application from '@features/application/Application';
 
 const store = configureStore();

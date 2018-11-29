@@ -4,7 +4,6 @@ import android.app.Application;
 
 import com.facebook.react.BuildConfig;
 import com.facebook.react.ReactApplication;
-import com.reactlibrary.RNVasernPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.github.droibit.android.reactnative.customtabs.CustomTabsPackage;
@@ -28,7 +27,6 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNVasernPackage(),
             new RNGestureHandlerPackage(),
             new VectorIconsPackage(),
             new CustomTabsPackage()

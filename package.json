@@ -53,8 +53,7 @@
     "react-redux": "~5.0.7",
     "redux": "~4.0.1",
     "redux-logger": "~3.0.6",
-    "redux-thunk": "~2.3.0",
-    "vasern": "^0.2.9"
+    "redux-thunk": "~2.3.0"
   },
   "devDependencies": {
     "babel-core": "^7.0.0-bridge.0",
