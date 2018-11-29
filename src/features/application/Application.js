@@ -3,18 +3,15 @@ import { bindActionCreators } from 'redux';
 import { AppState, Linking, NetInfo } from 'react-native';
 import { connect } from 'react-redux';
 import applicationAction from '@features/application/ApplicationActions';
+import authenticationAction from '@features/authentication/AuthenticationActions';
 import navigation from '@src/Navigation';
 
 class Application extends React.Component {
-  componentDidMount() {
+  async componentDidMount() {
+    await this.props.authentication.signCheck();
     AppState.addEventListener('change', this.props.application.statusChange);
     NetInfo.addEventListener('connectionChange', this.props.application.statusConnectionChange);
     Linking.addEventListener('url', this.props.application.handleOpenURL);
-    // Linking.getInitialURL().then((url) => {
-    //   if (url) {
-    //     this.props.application.handleOpenURL({ url });
-    //   }
-    // });
   }
 
   componentWillUnmount() {
@@ -30,11 +27,12 @@ class Application extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  authented: state.authentication.accessToken !== null
+  authented: state.authentication.isAuthented
 });
 
 const mapDispatchToProps = dispatch => ({
-  application: bindActionCreators(applicationAction, dispatch)
+  application: bindActionCreators(applicationAction, dispatch),
+  authentication: bindActionCreators(authenticationAction, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Application);

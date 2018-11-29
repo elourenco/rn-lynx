@@ -1,37 +1,39 @@
-import { SIGIN_SUCCESS } from './AuthenticationActions';
+import { SIGN_SUCCESS, SIGN_CHECK, SIGN_OUT } from './AuthenticationActions';
 
-const initialState = () => {
-  // const authentications = Authentication.data();
-  // console.log(authentications);
-  // if (authentications.length === 1) {
-  //   return {
-  //     accessToken: authentications[0].accessToken,
-  //     refreshToken: authentications[0].refreshToken,
-  //     avatar: authentications[0].avatar,
-  //     name: authentications[0].name,
-  //     id: authentications[0].id
-  //   };
-  // }
-  return {
-    accessToken: null,
-    refreshToken: null,
-    avatar: null,
-    name: null,
-    id: null
-  };
-};
+const initialState = () => ({
+  accessToken: null,
+  refreshToken: null,
+  avatar: null,
+  name: null,
+  isAuthented: false,
+  id: null
+});
 
 export default (state = initialState(), action) => {
   switch (action.type) {
-    case SIGIN_SUCCESS:
+    case SIGN_OUT:
       return {
         ...state,
-          refreshToken: action.data.refreshToken,
-          accessToken: action.data.accessToken,
-          avatar: action.data.avatar,
-          name: action.data.name,
-          id: action.data.id
-        };
+        isAuthented: false
+      };
+
+    case SIGN_CHECK:
+      return {
+        ...state,
+        isAuthented: action.authented
+      };
+
+    case SIGN_SUCCESS:
+      return {
+        ...state,
+        isAuthented: true,
+        refreshToken: action.data.refreshToken,
+        accessToken: action.data.accessToken,
+        avatar: action.data.avatar,
+        name: action.data.name,
+        id: action.data.id
+      };
+
     default:
       return state;
   }
