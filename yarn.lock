@@ -7639,6 +7639,13 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
 
+vasern@^0.2.9:
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/vasern/-/vasern-0.2.9.tgz#2a2ff8bf41aa2cfcc5fea86e99ce471b02b3b0fa"
+  integrity sha512-0ijLVFbHOqdKPVZwKykRcpvop9yFpsUW9pkqzzNqQqTgHQM6gBuDM36wF4R/HnWYz9t66SbHIpaU1DL+XnFwxw==
+  dependencies:
+    eslint-config-airbnb-base "^13.1.0"
+
 verror@1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/verror/-/verror-1.10.0.tgz#3a105ca17053af55d6e270c1f8288682e18da400"
