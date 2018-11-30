@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text, Alert } from 'react-native';
+import { Text } from 'react-native';
+import Content from '@components/content';
 import CustomHeaderLeft from '@components/custom-header-left';
 import ProfileButton from '@components/profile-button';
-import vasern from '@database/Vasern';
 
 class DashboardScreen extends React.Component {
   static navigationOptions = {
       headerLeft: <CustomHeaderLeft />,
-      headerRight: <ProfileButton openProfileOnPress={() => { Alert.alert('teste', `${vasern.Authentication.data()}`); }} />,
+      headerRight: <ProfileButton />,
       headerStyle: {
         elevation: 0,
         borderBottomWidth: 0
@@ -17,9 +17,9 @@ class DashboardScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Content>
         <Text>Dashboard</Text>
-      </View>
+      </Content>
     );
   }
 }

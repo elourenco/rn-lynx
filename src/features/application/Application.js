@@ -1,6 +1,6 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
-import { AppState, Linking, NetInfo, ActivityIndicator } from 'react-native';
+import { AppState, Linking, NetInfo } from 'react-native';
 import { connect } from 'react-redux';
 import applicationAction from '@features/application/ApplicationActions';
 import authenticationAction from '@features/authentication/AuthenticationActions';
