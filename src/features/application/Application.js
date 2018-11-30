@@ -1,14 +1,25 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
-import { AppState, Linking, NetInfo } from 'react-native';
+import { AppState, Linking, NetInfo, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 import applicationAction from '@features/application/ApplicationActions';
 import authenticationAction from '@features/authentication/AuthenticationActions';
 import navigation from '@src/Navigation';
+import LoadingView from '@components/loading-view';
+import vasern from '@database/Vasern';
 
 class Application extends React.Component {
-  async componentDidMount() {
-    await this.props.authentication.signCheck();
+  state = {
+    ready: false
+  }
+
+  componentDidMount() {
+    vasern.onLoaded(() => {
+      this.setState((prevState, props) => {
+        this.props.authentication.signCheck();
+        return { ready: true };
+     });
+    });
     AppState.addEventListener('change', this.props.application.statusChange);
     NetInfo.addEventListener('connectionChange', this.props.application.statusConnectionChange);
     Linking.addEventListener('url', this.props.application.handleOpenURL);
@@ -21,6 +32,11 @@ class Application extends React.Component {
   }
 
   render() {
+    const { ready } = this.state;
+    if (!ready) {
+      return (<LoadingView />);
+    }
+
     const AppContainer = navigation(this.props.authented);
     return <AppContainer />;
   }
