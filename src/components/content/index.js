@@ -15,7 +15,7 @@ class Content extends React.Component {
       <View style={[style, { flex: 1 }]}>
         {children}
         <ActionSheet
-          ref={c => this._actionSheet = c}
+          ref={c => { this._actionSheet = c; }}
           title="Menu"
           options={['Perfil', 'Sair', 'Cancelar']}
           cancelButtonIndex={2}

@@ -25,7 +25,7 @@ class DashboardScreen extends React.Component {
 
   render() {
     return (
-      <Content ref={c => this._content = c}>
+      <Content ref={c => { this._content = c; }}>
         <Text>Dashboard</Text>
       </Content>
     );
