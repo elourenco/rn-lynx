@@ -23,11 +23,11 @@ const ImageButton = ({ url, onPress }) => (
 
 class ProfileButton extends React.Component {
   render() {
-    const { openProfileOnPress, avatar } = this.props;
+    const { onPress, avatar } = this.props;
 
     return this.props.avatar ? (
       <View style={styles.container}>
-        <ImageButton url={avatar} onPress={openProfileOnPress} />
+        <ImageButton url={avatar} onPress={onPress} />
       </View>
     ) : null;
   }

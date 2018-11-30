@@ -6,18 +6,26 @@ import CustomHeaderLeft from '@components/custom-header-left';
 import ProfileButton from '@components/profile-button';
 
 class DashboardScreen extends React.Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => {
+    const handlerOpenMenu = navigation.getParam('openMenuCick', () => {});
+    return {
       headerLeft: <CustomHeaderLeft />,
-      headerRight: <ProfileButton />,
+      headerRight: <ProfileButton onPress={() => handlerOpenMenu()} />,
       headerStyle: {
         elevation: 0,
         borderBottomWidth: 0
       }
-    }
+    };
+  }
+
+  componentDidMount() {
+    const { navigation } = this.props;
+    navigation.setParams({ openMenuCick: () => this._content.openMenu() });
+  }
 
   render() {
     return (
-      <Content>
+      <Content ref={c => this._content = c}>
         <Text>Dashboard</Text>
       </Content>
     );
